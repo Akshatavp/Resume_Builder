@@ -1,0 +1,209 @@
+/* .resume-builder {
+    max-width: 600px;
+    margin: 0 auto;
+  }
+  
+  .tabs {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+  }
+  
+  .tab-content {
+    border: 1px solid #ccc;
+    padding: 20px;
+  }
+  
+  .form input {
+    display: block;
+    width: 100%;
+    margin-bottom: 10px;
+  } */
+  /* Add these styles to your existing CSS file */
+
+/* .form textarea {
+    display: block;
+    width: 100%;
+    height: 100px; 
+    margin-bottom: 10px;
+  } */
+  
+  /* Add these styles to your existing CSS file */
+
+/* .form textarea {
+  display: block;
+  width: 100%;
+  height: 100px; 
+  margin-bottom: 10px;
+}
+
+.resume-display h2{
+  align-items: center;
+  justify-content: center;
+} */
+  
+  /* Add more styles as needed */
+  
+
+  /* styles.css */
+
+  input{
+    margin-bottom:10px ;
+  }
+
+.resume-builder {
+  background-color: #526D82;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  font-family: 'Arial', sans-serif;
+}
+
+.tab-content {
+  background-color: #f8f9fa;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.form {
+  margin-bottom: 20px;
+}
+
+.form input,
+.form textarea {
+  width: calc(100% - 20px);
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+.form textarea {
+  height: 100px;
+}
+
+.tabs {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.tab-content h2 {
+  margin-top: 30px;
+  color: #007bff;
+}
+
+.tab-content p {
+  margin-bottom: 5px;
+}
+
+.resume-display {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  font-family: 'Arial', sans-serif;
+  background-color: #f8f9fa;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.resume-display h1 {
+  margin-bottom: 20px;
+  color: #007bff;
+}
+
+.resume-display h2 {
+  margin-top: 30px;
+  color: #007bff;
+}
+
+.resume-display hr {
+  border-color: #ccc;
+}
+
+.resume-display button {
+  display: block;
+  margin-top: 20px;
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.resume-display button:hover {
+  background-color: #0056b3;
+}
+
+.resume-display {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  font-family: 'Arial', sans-serif;
+  background-color: #f2f2f2;
+  border-radius: 5px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+.resume-display h1 {
+  font-size: 24px;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.resume-display h2 {
+  font-size: 18px;
+  color: #333;
+  margin-top: 20px;
+}
+
+.resume-display p {
+  margin-bottom: 5px;
+}
+
+.resume-display hr {
+  border: none;
+  border-top: 1px solid #ccc;
+  margin: 20px 0;
+}
+
+.resume-display button {
+  display: block;
+  margin: 20px auto;
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s;
+}
+
+.resume-display button:hover {
+  background-color: #0056b3;
+}
+
+.resume-display {
+  /* Existing styles */
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+
+
+.photo img {
+  width: 100px; /* Adjust size as needed */
+  height: 100px; /* Adjust size as needed */
+  border-radius: 50%;
+  position: absolute;
+  top: 20px;
+  right: 40px;
+
+}
