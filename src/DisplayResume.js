@@ -1,38 +1,86 @@
-import React, { useState,useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
+import { PDFDownloadLink, Document, Page, View, Text, StyleSheet, Image } from '@react-pdf/renderer';
+import htmlToPdf from 'html-to-pdf-js';
 
 import './styles.css'; // Import your CSS file for styling
 
-const DisplayResume = ({ formData }) => {
-  const handleDownload = () => {
-    const data = JSON.stringify(formData, null, 2);
-    const blob = new Blob([data], { type: 'application/json' });
-    const url = URL.createObjectURL(blob);
-    const a = document.createElement('a');
-    a.href = url;
-    a.download = 'resume.json';
-    document.body.appendChild(a);
-    a.click();
-    document.body.removeChild(a);
-    URL.revokeObjectURL(url);
-  };
-console.log(formData)
-const [imageUrl, setImageUrl] = useState("");
-useEffect(() => {
-  // Create an object URL for the file
-  if (formData.image) {
-    const url = URL.createObjectURL(formData.image);
-    setImageUrl(url);
+import html2pdf from 'html2pdf.js';
 
-    // Clean up the object URL on unmount
-    return () => URL.revokeObjectURL(url);
+
+
+// Styles for PDF
+const styles = StyleSheet.create({
+  page: {
+    flexDirection: 'column',
+    backgroundColor: '#f2f2f2',
+    padding: 20
+  },
+  section: {
+    marginBottom: 10
+  },
+  title: {
+    fontSize: 24,
+    marginBottom: 10,
+    fontWeight: 'bold',
+    color: '#333'
+  },
+  text: {
+    fontSize: 16,
+    marginBottom: 5,
+    fontWeight: 'bold',
+    color: '#333'
+  },
+  image: {
+    width: 100,
+    height: 100,
+    borderRadius: 50,
+    marginBottom: 10
   }
-}, [formData.image]);
+});
+
+const DisplayResume = ({ formData }) => {
+  const [imageUrl, setImageUrl] = useState("");
+
+  useEffect(() => {
+    // Create an object URL for the file
+    if (formData.image) {
+      const url = URL.createObjectURL(formData.image);
+      setImageUrl(url);
+
+      // Clean up the object URL on unmount
+      return () => URL.revokeObjectURL(url);
+    }
+  }, [formData.image]);
+
+  const handleDownloadPDF = () => {
+    const element = document.getElementById('resume-display');
+    const htmlContent = element.innerHTML;
+
+    // htmlToPdf().set({ html: htmlContent }).save();
+    window.print()
+};
+
+
   return (
-    <div className="resume-display">
+    <div className="resume-display" id="resume-display">
+      <div style={{
+        width:"100%"
+      }}>
+         <img src={imageUrl}  style={{
+          width: "150px",
+          height: "150px",
+          margin: "auto",
+          marginLeft: "42%",
+          borderRadius: "50%"
+         }}/></div>
+         
+         <hr/>
       <h1>{formData.fullName}</h1>
       <p>Email: {formData.email}</p>
       <p>Phone: {formData.phoneNumber}</p>
-
+   
+      <h2>Professional Summary</h2>
+      <p>{formData.professionalSummary}</p>
       <hr />
       <h2>Education</h2>
       <p>Degree: {formData.degree}</p>
@@ -45,25 +93,12 @@ useEffect(() => {
       <p>Position: {formData.position}</p>
       <hr />
       <h2>Skills</h2>
-      <p>{formData.skills}</p>
+      <pre>{formData.skills}</pre>
       <hr />
       <h2>Projects</h2>
       <p>{formData.projects}</p>
       <hr />
-      <h2>Achievements and Certificates</h2>
-      <p>{formData.achCerts}</p>
-      <hr />
-      
-       
-          <div className="photo">
-            <img src={imageUrl} />
-          </div>
-     
-      
-      {/* Rest of resume content */}
-      
-     
-      <button onClick={handleDownload}>Download Resume</button>
+      <button onClick={handleDownloadPDF}>Download PDF</button>
     </div>
   );
 };

@@ -5,7 +5,7 @@ import './styles.css'; // Import your CSS file for styling
 const PersonalDetails = ({ formData, handleChange ,setFormData}) => {
 
   const [imageUrl, setImageUrl] = useState("");
-
+  const [isFormValid, setIsFormValid] = useState(false);
   const handleImageChange = (e) => {
     if (e.target.files.length > 0) {
       const file = e.target.files[0];
@@ -16,6 +16,16 @@ const PersonalDetails = ({ formData, handleChange ,setFormData}) => {
       }));
     }
   };
+
+  useEffect(() => {
+    // Validate form fields
+    const isFormFilled =
+      formData.fullName &&
+      formData.phoneNumber &&
+      formData.email &&
+      formData.image;
+    setIsFormValid(isFormFilled);
+  }, [formData]);
 
   useEffect(() => {
     // Create an object URL for the file
@@ -31,7 +41,7 @@ const PersonalDetails = ({ formData, handleChange ,setFormData}) => {
 
   return (
    
-    <div className="form">
+    <div className="form form-group">
        <h1>Personal Details</h1>
       <input
         type="text"
@@ -63,7 +73,7 @@ const PersonalDetails = ({ formData, handleChange ,setFormData}) => {
 
 <input
           type="file"
-          className="form-control"
+          // className="form-control"
           onChange={handleImageChange}
           accept="image/*"
         />
