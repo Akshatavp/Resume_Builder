@@ -1,8 +1,8 @@
-import React, { useEffect,useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './styles.css'; // Import your CSS file for styling
 
 // Component for Personal Details
-const PersonalDetails = ({ formData, handleChange ,setFormData}) => {
+const PersonalDetails = ({ formData, handleChange, setFormData }) => {
 
   const [imageUrl, setImageUrl] = useState("");
   const [isFormValid, setIsFormValid] = useState(false);
@@ -37,10 +37,8 @@ const PersonalDetails = ({ formData, handleChange ,setFormData}) => {
       return () => URL.revokeObjectURL(url);
     }
   }, [formData.image]);
-  
 
   return (
-   
     <div className="form form-group">
        <h1>Personal Details</h1>
       <input
@@ -49,6 +47,7 @@ const PersonalDetails = ({ formData, handleChange ,setFormData}) => {
         placeholder="Full Name"
         value={formData.fullName}
         onChange={handleChange}
+        required // <-- Added required attribute
       />
       <input
         type="email"
@@ -56,6 +55,7 @@ const PersonalDetails = ({ formData, handleChange ,setFormData}) => {
         placeholder="Email"
         value={formData.email}
         onChange={handleChange}
+        required // <-- Added required attribute
       />
       <input
         type="tel"
@@ -63,6 +63,7 @@ const PersonalDetails = ({ formData, handleChange ,setFormData}) => {
         placeholder="Phone Number"
         value={formData.phoneNumber}
         onChange={handleChange}
+        required // <-- Added required attribute
       />
       {/* <input
         type="file"
@@ -70,17 +71,15 @@ const PersonalDetails = ({ formData, handleChange ,setFormData}) => {
         accept="image/*"
         onChange={handleChange}
       /> */}
-
-<input
-          type="file"
-          // className="form-control"
-          onChange={handleImageChange}
-          accept="image/*"
-        />
+      <input
+        type="file"
+        // className="form-control"
+        onChange={handleImageChange}
+        accept="image/*"
+        required // <-- Added required attribute
+      />
     </div>
   );
 };
-
-
 
 export default PersonalDetails;

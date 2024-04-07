@@ -62,7 +62,10 @@ const DisplayResume = ({ formData }) => {
 
 
   return (
-    <div className="resume-display" id="resume-display">
+    <div className="resume-display" id="resume-display" style={{
+      boxShadow: "rgba(0, 0, 0, 0.35) 0px 5px 15px"
+    }}>
+      
       <div style={{
         width:"100%"
       }}>
@@ -75,10 +78,12 @@ const DisplayResume = ({ formData }) => {
          }}/></div>
          
          <hr/>
-      <h1>{formData.fullName}</h1>
+      <h1 style={{
+        fontSize: "35px"
+      }}>{formData.fullName}</h1>
       <p>Email: {formData.email}</p>
       <p>Phone: {formData.phoneNumber}</p>
-   
+   <hr/>
       <h2>Professional Summary</h2>
       <p>{formData.professionalSummary}</p>
       <hr />
